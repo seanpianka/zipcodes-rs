@@ -90,19 +90,19 @@ fn clean_zipcode(zipcode: &str) -> Result<&str> {
 /// 'zip_code_type': 'STANDARD'}[
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Zipcode {
-    acceptable_cities: Vec<String>,
-    active: bool,
-    area_codes: Vec<String>,
-    city: String,
-    country: String,
-    lat: String,
-    long: String,
-    state: String,
-    timezone: String,
-    unacceptable_cities: Vec<String>,
-    world_region: String,
-    zip_code: String,
-    zip_code_type: String,
+    pub acceptable_cities: Vec<String>,
+    pub active: bool,
+    pub area_codes: Vec<String>,
+    pub city: String,
+    pub country: String,
+    pub lat: String,
+    pub long: String,
+    pub state: String,
+    pub timezone: String,
+    pub unacceptable_cities: Vec<String>,
+    pub world_region: String,
+    pub zip_code: String,
+    pub zip_code_type: String,
 }
 
 #[cfg(test)]
