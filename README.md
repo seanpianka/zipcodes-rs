@@ -57,7 +57,7 @@ or add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-zipcodes = "0.2"
+zipcodes = "0.3"
 ```
 
 Zipcodes has no explicit MSRV.
