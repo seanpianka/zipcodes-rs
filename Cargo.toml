@@ -1,6 +1,6 @@
 [package]
 name = "zipcodes"
-version = "0.3.0"
+version = "0.3.1"
 edition = "2018"
 license = "MIT OR Apache-2.0"
 description = "Query US zipcodes without SQLite"
@@ -11,6 +11,7 @@ keywords = ["zipcode", "us", "state", "filter", "sqlite"]
 categories = ["text-processing", "data-structures", "development-tools"]
 
 [lib]
+crate-type = ["cdylib", "lib"]
 name = "zipcodes"
 path = "src/lib.rs"
 
