@@ -1,0 +1,30 @@
+[package]
+name = "zipcodes"
+version = "0.1.0"
+edition = "2018"
+license = "MIT OR Apache-2.0"
+description = "Query US zipcodes without SQLite"
+homepage = "https://github.com/seanpianka/zipcodes-rs"
+repository = "https://github.com/seanpianka/zipcodes-rs"
+readme = "README.md"
+keywords = ["zipcode", "us", "state", "filter", "sqlite"]
+categories = ["text-processing", "data-structures", "development-tools"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+
+[package.metadata.maturin]
+classifier = [
+    "Programming Language :: Rust",
+    "Operating System :: POSIX :: Linux",
+]
+
+[dependencies]
+bzip2 = { version = "0.4" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1"
+lazy_static = "1.4"
+thiserror = "1.0.35"
+debug_print = "1.0.0"
