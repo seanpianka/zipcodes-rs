@@ -61,12 +61,12 @@ pub fn list_all() -> Vec<Zipcode> {
 }
 
 fn clean_zipcode(zipcode: &str) -> Result<&str> {
-    let split_zipcode = zipcode.split("-").collect::<Vec<_>>();
-    let zipcode = split_zipcode.first().ok_or(Error::InvalidFormat)?;
-    if zipcode.len() != ZIPCODE_LENGTH {
+    let zipcode = zipcode.trim();
+    if zipcode.len() < ZIPCODE_LENGTH {
         return Err(Error::InvalidFormat);
     }
-    if !zipcode.chars().all(|c| c.is_numeric()) {
+    let split_zipcode = &zipcode[..ZIPCODE_LENGTH];
+    if !split_zipcode.chars().all(|c| c.is_numeric()) {
         return Err(Error::InvalidCharacters);
     }
     Ok(zipcode)
@@ -111,14 +111,25 @@ mod tests {
 
     #[test]
     fn should_find_real_zipcodes() {
-        match is_real("06902") {
-            Ok(o) => {
-                assert!(o)
-            }
-            Err(e) => {
-                panic!("{}", e)
-            }
+        assert!(is_real("06903").unwrap())
+    }
+
+    #[test]
+    fn should_return_no_zipcodes() {
+        for zc in &[
+            "00000",
+            "00000-0000",
+            "00000 0000",
+        ] {
+            assert!(matching(zc, None).unwrap().is_empty())
         }
+    }
+
+    #[test]
+    fn should_fail_to_find_zipcodes_not_included_in_overrides() {
+        let zc = "06903";
+        matching(zc, None).unwrap();
+        assert!(matching(zc, Some(matching("06904", None).unwrap())).unwrap().is_empty());
     }
 
     // TODO: Migrate remaining unittests for the python library.
