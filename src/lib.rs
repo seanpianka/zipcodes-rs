@@ -1,4 +1,4 @@
-use lazy_static::lazy_static;
+use once_cell::sync::Lazy;
 use serde::{Deserialize, Serialize};
 use std::io::prelude::*;
 use bzip2::read::{BzDecoder};
@@ -6,18 +6,17 @@ use debug_print::debug_println;
 
 const ZIPCODE_LENGTH: usize = 5;
 
-static ZIPCODE_BYTES_BZIP: &'static [u8] = include_bytes!("zips.json.bz2");
-lazy_static! {
-    static ref ZIPCODES: Vec<Zipcode> = {
-        let mut decompressor = BzDecoder::new(ZIPCODE_BYTES_BZIP);
-        let mut zipcode_json_bytes = String::new();
-        decompressor.read_to_string(&mut zipcode_json_bytes).unwrap();
-        match serde_json::from_str::<Vec<Zipcode>>(zipcode_json_bytes.as_str()) {
-            Ok(o) => o,
-            Err(e) => { panic!("failed to deserialize zipcode database: {}", e); }
-        }
-    };
-}
+static ZIPCODE_BYTES_BZIP: &[u8] = include_bytes!("zips.json.bz2");
+
+static ZIPCODES: Lazy<Vec<Zipcode>> = Lazy::new(|| {
+    let mut decompressor = BzDecoder::new(ZIPCODE_BYTES_BZIP);
+    let mut zipcode_json_bytes = String::new();
+    decompressor.read_to_string(&mut zipcode_json_bytes).unwrap();
+    match serde_json::from_str::<Vec<Zipcode>>(zipcode_json_bytes.as_str()) {
+        Ok(o) => o,
+        Err(e) => { panic!("failed to deserialize zipcode database: {}", e); }
+    }
+});
 
 /// Describes different types of errors with supplied zipcodes during parsing.
 #[derive(thiserror::Error, Debug)]
