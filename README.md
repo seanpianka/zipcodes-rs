@@ -1,7 +1,7 @@
 # Zipcodes
 
 [![Docs](https://docs.rs/zipcodes/badge.svg)](https://docs.rs/zipcodes)
-[![Crates.io](https://img.shields.io/crates/v/zipcodes.svg?maxAge=2592000)](https://crates.io/crates/zipcodes)
+[![Crates.io](https://img.shields.io/crates/v/zipcodes.svg?maxAge=2592000)](https://crates.io/crates/zipcodes)![Crates.io](https://img.shields.io/crates/d/zipcodes)
 
 Zipcodes is a simple library for querying U.S. zipcodes.
 
