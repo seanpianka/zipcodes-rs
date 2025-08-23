@@ -37,7 +37,7 @@ fn main() {
 //   'zip_code_type': 'STANDARD'}[
 ```
 
-⚠️ The zipcode data was last updated on: **Oct. 3, 2021** ⚠️
+⚠️  The zipcode data was last updated on: **Feb. 16, 2025** ⚠️
 
 [//]: # ([![Downloads]&#40;https://pepy.tech/badge/zipcodes/month&#41;]&#40;https://pepy.tech/project/zipcodes/month&#41;)
 
