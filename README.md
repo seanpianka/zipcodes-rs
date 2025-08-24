@@ -1,11 +1,13 @@
 # Zipcodes
 
 [![Docs](https://docs.rs/zipcodes/badge.svg)](https://docs.rs/zipcodes)
-[![Crates.io](https://img.shields.io/crates/v/zipcodes.svg?maxAge=2592000)](https://crates.io/crates/zipcodes)![Crates.io](https://img.shields.io/crates/d/zipcodes)
+[![Crates.io](https://img.shields.io/crates/v/zipcodes.svg?maxAge=2592000)](https://crates.io/crates/zipcodes)![Crates.io](https://img.shields.io/crates/d/zipcodes)![MSRV](https://img.shields.io/badge/MSRV-1.82-blue.svg)
 
 `Zipcodes` is a simple library for querying U.S. zipcodes. It pre-loads all zipcode data into memory at compile time, making it fast and efficient.
 
 ⚠️  The zipcode data was last updated on: **Feb. 16, 2025** ⚠️
+
+The minimum supported Rust version (MSRV) is `1.82`.
 
 ## Installation
 
