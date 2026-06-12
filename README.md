@@ -1,3 +1,9 @@
+> [!IMPORTANT]
+> **This repository has been archived.** Development of the `zipcodes` crate moved to
+> [**seanpianka/Zipcodes**](https://github.com/seanpianka/Zipcodes), where the Rust crate and the
+> [`zipcodes` Python package](https://pypi.org/project/zipcodes/) are built from a single codebase.
+> Versions 2.0.0+ on [crates.io](https://crates.io/crates/zipcodes) are published from there.
+
 # Zipcodes
 
 [![Docs](https://docs.rs/zipcodes/badge.svg)](https://docs.rs/zipcodes)
